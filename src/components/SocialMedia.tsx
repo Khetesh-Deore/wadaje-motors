@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaInstagram, FaFacebook, FaLinkedin, FaXTwitter } from 'react-icons/fa6'
+import { FaInstagram, FaFacebook, FaLinkedin, FaXTwitter, FaUsers } from 'react-icons/fa6'
 import './SocialMedia.css'
 
 const SocialMedia = () => {
@@ -15,20 +15,20 @@ const SocialMedia = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.12
       }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
       transition: {
         type: 'spring',
-        damping: 15,
+        damping: 20,
         stiffness: 300
       }
     }
@@ -36,16 +36,16 @@ const SocialMedia = () => {
 
   return (
     <section className="social-media">
-      <svg className="wave-divider top" viewBox="0 0 1200 100" preserveAspectRatio="none">
+      <svg className="wave-divider top" viewBox="0 0 1200 80" preserveAspectRatio="none">
         <path
-          d="M0,50 Q300,100 600,50 T1200,50 L1200,0 L0,0 Z"
-          fill="url(#gradient2)"
-          opacity="0.1"
+          d="M0,40 Q300,60 600,40 T1200,40 L1200,0 L0,0 Z"
+          fill="url(#gradient-social)"
+          opacity="0.06"
         />
         <defs>
-          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="var(--primary-purple)" />
-            <stop offset="100%" stopColor="var(--primary-blue)" />
+          <linearGradient id="gradient-social" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#3498db" />
+            <stop offset="100%" stopColor="#27ae60" />
           </linearGradient>
         </defs>
       </svg>
@@ -57,8 +57,14 @@ const SocialMedia = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
+        <div className="social-badge">
+          <FaUsers />
+          <span>Stay Connected</span>
+        </div>
         <h2 className="social-title">Connect With Us</h2>
-        <p className="social-subtitle">Follow us on social media for updates</p>
+        <p className="social-subtitle">
+          Follow us on social media for the latest updates and announcements
+        </p>
       </motion.div>
 
       <motion.div
@@ -75,8 +81,8 @@ const SocialMedia = () => {
             className="social-icon"
             variants={itemVariants}
             whileHover={{
-              scale: 1.15,
-              rotate: [0, -5, 5, 0],
+              scale: 1.08,
+              y: -4,
               transition: { duration: 0.3 }
             }}
             whileTap={{ scale: 0.95 }}

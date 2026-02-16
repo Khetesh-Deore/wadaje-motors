@@ -10,34 +10,35 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
   z-index: 1000;
   border: none;
-  transition: all 0.3s ease;
-  animation: pulse 2s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse-whatsapp 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-whatsapp {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5), 0 0 0 12px rgba(37, 211, 102, 0.1);
+  }
 }
 
 .whatsapp-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
 }
 
 .whatsapp-button:active {
-  transform: scale(0.95);
+  transform: scale(1.05);
 }
 
 .whatsapp-button svg {
   font-size: 32px;
   color: white;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-  }
-  50% {
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.6), 0 0 0 12px rgba(37, 211, 102, 0.1);
-  }
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .whatsapp-tooltip {
@@ -48,12 +49,13 @@
   background: white;
   padding: 12px 20px;
   border-radius: 12px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   white-space: nowrap;
   font-size: 14px;
   font-weight: 600;
-  color: var(--dark-blue);
+  color: var(--primary-dark);
   pointer-events: none;
+  border: 1px solid rgba(52, 73, 94, 0.1);
 }
 
 .whatsapp-tooltip::after {
@@ -73,8 +75,8 @@
   .whatsapp-button {
     width: 56px;
     height: 56px;
-    bottom: 20px;
-    right: 20px;
+    bottom: 24px;
+    right: 24px;
   }
 
   .whatsapp-button svg {

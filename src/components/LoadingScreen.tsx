@@ -11,24 +11,29 @@ const LoadingScreen = () => {
     >
       <motion.div
         className="loading-content"
-        initial={{ scale: 0.8, opacity: 0 }}
+        initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.img
-          src="/documents/1000024686.png"
-          alt="Wadaje Motors Logo"
-          className="loading-logo"
-          animate={{
-            scale: [1, 1.05, 1],
-            opacity: [0.8, 1, 0.8]
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <div className="loading-logo-wrapper">
+          <div className="loading-circle loading-circle-1"></div>
+          <div className="loading-circle loading-circle-2"></div>
+          <div className="loading-circle loading-circle-3"></div>
+          <motion.img
+            src="/documents/1000024686.png"
+            alt="Wadaje Motors Logo"
+            className="loading-logo"
+            animate={{
+              scale: [1, 1.03, 1],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </div>
+
         <motion.div
           className="loading-text"
           initial={{ opacity: 0, y: 20 }}
@@ -37,13 +42,17 @@ const LoadingScreen = () => {
         >
           <h2>WADAJE MOTORS</h2>
           <p>WM INDIA</p>
+          <div className="loading-tagline">Engineering Excellence</div>
         </motion.div>
-        <motion.div
-          className="loading-bar"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        />
+
+        <div className="loading-bar-container">
+          <motion.div
+            className="loading-bar"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+        </div>
       </motion.div>
     </motion.div>
   )

@@ -21,7 +21,7 @@ function App() {
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(null)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2500)
+    const timer = setTimeout(() => setLoading(false), 2200)
     return () => clearTimeout(timer)
   }, [])
 

@@ -1,0 +1,362 @@
+/* Trolley Container */
+.trolley-container {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  perspective: 1000px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Main Trolley */
+.trolley {
+  position: absolute;
+  bottom: 20px;
+  left: -200px;
+  width: 180px;
+  height: 100px;
+  animation: trolleyRoll 12s ease-in-out infinite;
+  will-change: transform;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Trolley Roll Animation */
+@keyframes trolleyRoll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px));
+  }
+}
+
+/* Wheel Sets */
+.wheel-set {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.wheel-set.front {
+  left: 20px;
+}
+
+.wheel-set.rear {
+  right: 20px;
+}
+
+/* Wheel Design */
+.wheel {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at 35% 35%, #555, #222);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.trolley-wheel {
+  animation: wheelSpin 0.8s linear infinite;
+}
+
+@keyframes wheelSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wheel-rim {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #1a1a1a;
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.wheel-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 35% 35%, #777, #333);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #111;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Wheel Spokes */
+.spoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 60%;
+  background: linear-gradient(180deg, #444, #222);
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+}
+
+.spoke-2 {
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+
+.spoke-3 {
+  transform: translate(-50%, -50%) rotate(120deg);
+}
+
+/* Trolley Body */
+.trolley-body {
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  animation: suspensionBounce 2s ease-in-out infinite;
+}
+
+@keyframes suspensionBounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Suspension Springs */
+.suspension {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 60px;
+}
+
+.spring {
+  width: 4px;
+  height: 15px;
+  background: repeating-linear-gradient(
+    0deg,
+    #555,
+    #555 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+/* Axles */
+.axle {
+  position: absolute;
+  height: 3px;
+  background: linear-gradient(90deg, #333, #555, #333);
+  border-radius: 2px;
+  bottom: 5px;
+}
+
+.front-axle {
+  left: 15px;
+  width: 50px;
+}
+
+.rear-axle {
+  right: 15px;
+  width: 50px;
+}
+
+/* Cargo Box */
+.trolley-cargo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 45px;
+  animation: cargoSway 3s ease-in-out infinite;
+}
+
+@keyframes cargoSway {
+  0%, 100% {
+    transform: translateX(-50%) rotateZ(-0.5deg);
+  }
+  50% {
+    transform: translateX(-50%) rotateZ(0.5deg);
+  }
+}
+
+.cargo-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  border-radius: 4px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.cargo-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 50%
+  );
+  border-radius: 4px;
+}
+
+.cargo-side {
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.cargo-side.left {
+  left: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.cargo-side.right {
+  right: 0;
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.2), transparent);
+  border-radius: 0 4px 4px 0;
+}
+
+.cargo-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.2));
+  border-radius: 0 0 4px 4px;
+}
+
+.cargo-detail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+}
+
+.cargo-detail::before,
+.cargo-detail::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+}
+
+.cargo-detail::before {
+  top: -8px;
+}
+
+.cargo-detail::after {
+  top: 8px;
+}
+
+/* Handle */
+.handle {
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  width: 20px;
+  height: 35px;
+  background: linear-gradient(90deg, #2c2c2c 0%, #444 50%, #2c2c2c 100%);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.handle::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 10px;
+  background: #333;
+  border-radius: 2px;
+}
+
+.handle-grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 20px;
+  background: repeating-linear-gradient(
+    0deg,
+    #555,
+    #555 2px,
+    #333 2px,
+    #333 4px
+  );
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trolley-container {
+    bottom: 60px;
+    height: 100px;
+  }
+
+  .trolley {
+    width: 140px;
+    height: 80px;
+    animation-duration: 10s;
+  }
+
+  .wheel {
+    width: 32px;
+    height: 32px;
+  }
+
+  .trolley-body {
+    height: 50px;
+  }
+
+  .trolley-cargo {
+    width: 80px;
+    height: 36px;
+  }
+}
+
+/* Pause on hover (optional) */
+.trolley-container:hover .trolley {
+  animation-play-state: paused;
+}
+
+.trolley-container:hover .trolley-wheel {
+  animation-play-state: paused;
+}

@@ -2,6 +2,7 @@
   padding: 100px 20px;
   position: relative;
   text-align: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.95) 100%);
 }
 
 .wave-divider.top {
@@ -9,18 +10,36 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 80px;
 }
 
 .social-header {
   margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.social-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: rgba(52, 152, 219, 0.08);
+  border: 2px solid rgba(52, 152, 219, 0.15);
+  border-radius: 50px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-blue);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .social-title {
   font-size: clamp(36px, 5vw, 56px);
-  font-weight: 700;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+  font-weight: 800;
+  margin-bottom: 18px;
+  background: var(--gradient-dark);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -28,8 +47,10 @@
 
 .social-subtitle {
   font-size: 18px;
-  color: #64748b;
-  font-weight: 500;
+  color: var(--dark-gray);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .social-icons {
@@ -40,16 +61,18 @@
   flex-wrap: wrap;
   max-width: 700px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .social-icon {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 2px solid var(--glass-border);
+  background: white;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(52, 73, 94, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,9 +80,9 @@
   gap: 8px;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   text-decoration: none;
-  color: #64748b;
+  color: var(--dark-gray);
   position: relative;
   overflow: hidden;
 }
@@ -78,17 +101,16 @@
 }
 
 .social-icon:hover::before {
-  opacity: 0.1;
+  opacity: 0.08;
 }
 
 .social-icon:hover {
   border-color: var(--social-color);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 .social-icon .icon {
-  font-size: 32px;
+  font-size: 36px;
   position: relative;
   z-index: 1;
   transition: all 0.3s ease;
@@ -100,11 +122,13 @@
 }
 
 .social-name {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   position: relative;
   z-index: 1;
   transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .social-icon:hover .social-name {
@@ -116,20 +140,24 @@
     padding: 80px 16px;
   }
 
+  .social-header {
+    margin-bottom: 50px;
+  }
+
   .social-icons {
-    gap: 20px;
+    gap: 24px;
   }
 
   .social-icon {
-    width: 80px;
-    height: 80px;
+    width: 95px;
+    height: 95px;
   }
 
   .social-icon .icon {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .social-name {
-    font-size: 11px;
+    font-size: 12px;
   }
 }

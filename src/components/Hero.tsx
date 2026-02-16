@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { FaArrowRight, FaCheckCircle, FaLeaf, FaSeedling } from 'react-icons/fa'
+import { FaArrowRight, FaCheckCircle, FaCog, FaIndustry } from 'react-icons/fa'
+import TrolleyAnimation from './TrolleyAnimation'
 import './Hero.css'
 
 const Hero = () => {
@@ -11,33 +12,17 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-background">
-        {/* Animated orbs */}
-        <div className="growth-orb orb-1"></div>
-        <div className="growth-orb orb-2"></div>
-        <div className="growth-orb orb-3"></div>
+        {/* Subtle gradient orbs */}
+        <div className="gradient-orb orb-1"></div>
+        <div className="gradient-orb orb-2"></div>
+        <div className="gradient-orb orb-3"></div>
 
-        {/* Decorative agriculture icons */}
-        <div className="hero-decoration decoration-1">🌾</div>
-        <div className="hero-decoration decoration-2">🌱</div>
-        <div className="hero-decoration decoration-3">🌻</div>
-        <div className="hero-decoration decoration-4">🍃</div>
-
-        {/* Wheat field effect */}
-        <div className="wheat-field">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="wheat-stalk"
-              style={{
-                left: `${(i / 50) * 100}%`,
-                height: `${Math.random() * 100 + 50}px`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${Math.random() * 2 + 2}s`
-              }}
-            />
-          ))}
-        </div>
+        {/* Geometric pattern overlay */}
+        <div className="geometric-pattern"></div>
       </div>
+
+      {/* Trolley Animation */}
+      <TrolleyAnimation />
 
       <motion.div
         className="hero-content"
@@ -45,15 +30,15 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        {/* Badge */}
+        {/* Professional Badge */}
         <motion.div
           className="hero-badge"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <FaSeedling className="hero-badge-icon" />
-          <span>Cultivating Excellence Since Inception</span>
+          <FaIndustry className="hero-badge-icon" />
+          <span>Quality Manufacturing Since Inception</span>
         </motion.div>
 
         {/* Logo */}
@@ -61,7 +46,7 @@ const Hero = () => {
           src="/documents/1000024686.png"
           alt="Wadaje Motors Logo"
           className="hero-logo"
-          initial={{ scale: 0.8, opacity: 0 }}
+          initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         />
@@ -85,7 +70,7 @@ const Hero = () => {
         >
           <span className="hero-subtitle-highlight">Engineering Precision.</span> Driving Innovation.
           <br />
-          Rooted in Quality, Growing with Purpose.
+          Premium Agricultural Trolleys & Tractor Parts
         </motion.p>
 
         {/* CTA Buttons */}
@@ -100,8 +85,8 @@ const Hero = () => {
             <FaArrowRight className="btn-icon" />
           </button>
           <button className="btn-secondary">
-            <FaLeaf style={{ marginRight: '8px' }} />
-            Our Journey
+            <FaCog style={{ marginRight: '8px' }} />
+            Our Products
           </button>
         </motion.div>
 
@@ -118,11 +103,11 @@ const Hero = () => {
           </div>
           <div className="hero-feature">
             <FaCheckCircle className="hero-feature-icon" />
-            <span>Sustainable Practices</span>
+            <span>Quality Assured</span>
           </div>
           <div className="hero-feature">
             <FaCheckCircle className="hero-feature-icon" />
-            <span>Quality Assured</span>
+            <span>Trusted Partner</span>
           </div>
         </motion.div>
       </motion.div>

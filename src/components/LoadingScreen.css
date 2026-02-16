@@ -4,24 +4,96 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 50%, #f0f4ff 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 50%, #e8eef2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  overflow: hidden;
+}
+
+.loading-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 30% 40%, rgba(52, 152, 219, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(39, 174, 96, 0.06) 0%, transparent 50%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .loading-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.loading-logo-wrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.loading-circle-1 {
+  width: 100%;
+  height: 100%;
+  border-top-color: var(--accent-blue);
+  border-right-color: var(--accent-blue);
+  animation: spin 2s linear infinite;
+}
+
+.loading-circle-2 {
+  width: 80%;
+  height: 80%;
+  border-top-color: var(--accent-green);
+  border-right-color: var(--accent-green);
+  animation: spin 2.5s linear infinite reverse;
+}
+
+.loading-circle-3 {
+  width: 60%;
+  height: 60%;
+  border-top-color: var(--primary-dark);
+  border-right-color: var(--primary-dark);
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-logo {
-  width: 180px;
+  width: 140px;
   height: auto;
-  filter: drop-shadow(0 8px 24px rgba(124, 58, 237, 0.2));
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.1));
+  position: relative;
+  z-index: 1;
 }
 
 .loading-text {
@@ -30,44 +102,92 @@
 
 .loading-text h2 {
   font-size: 32px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+  font-weight: 800;
+  background: var(--gradient-dark);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   letter-spacing: 2px;
 }
 
 .loading-text p {
-  font-size: 14px;
-  font-weight: 500;
-  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-blue);
   letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.loading-tagline {
+  font-size: 15px;
+  color: var(--dark-gray);
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.loading-bar-container {
+  width: 220px;
+  height: 4px;
+  background: rgba(52, 152, 219, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
 }
 
 .loading-bar {
-  width: 200px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-purple), var(--primary-blue));
-  border-radius: 2px;
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 10px;
   transform-origin: left;
+  box-shadow: 0 0 16px rgba(52, 152, 219, 0.4);
+  position: relative;
+}
+
+.loading-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 @media (max-width: 768px) {
+  .loading-logo-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
   .loading-logo {
-    width: 140px;
+    width: 110px;
   }
 
   .loading-text h2 {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .loading-text p {
-    font-size: 12px;
+    font-size: 11px;
+    letter-spacing: 3px;
   }
 
-  .loading-bar {
-    width: 150px;
+  .loading-tagline {
+    font-size: 13px;
+  }
+
+  .loading-bar-container {
+    width: 180px;
   }
 }

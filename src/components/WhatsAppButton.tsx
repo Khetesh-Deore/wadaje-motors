@@ -17,15 +17,15 @@ const WhatsAppButton = () => {
     <motion.div
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1, type: 'spring', stiffness: 260, damping: 20 }}
+      transition={{ delay: 1.2, type: 'spring', stiffness: 260, damping: 20 }}
     >
       <motion.button
         className="whatsapp-button"
         onClick={handleClick}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ scale: 1.15, rotate: 5 }}
+        whileTap={{ scale: 1.05 }}
         aria-label="Contact us on WhatsApp"
       >
         <FaWhatsapp />
@@ -38,7 +38,7 @@ const WhatsAppButton = () => {
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3 }}
           >
             Chat with us
           </motion.div>

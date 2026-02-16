@@ -14,18 +14,18 @@ const Documents = ({ documents, onDocumentClick }: DocumentsProps) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
+        duration: 0.6,
         ease: [0.4, 0, 0.2, 1]
       }
     }
@@ -33,24 +33,18 @@ const Documents = ({ documents, onDocumentClick }: DocumentsProps) => {
 
   return (
     <section id="documents" className="documents">
-      {/* Wave Divider */}
+      {/* Subtle Wave Divider */}
       <div className="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
           <path
-            d="M0,50 Q150,20 300,50 T600,50 T900,50 T1200,50 L1200,0 L0,0 Z"
-            fill="url(#gradient-green)"
-            opacity="0.15"
-          />
-          <path
-            d="M0,70 Q200,40 400,70 T800,70 T1200,70 L1200,0 L0,0 Z"
-            fill="url(#gradient-green)"
-            opacity="0.1"
+            d="M0,50 Q300,30 600,50 T1200,50 L1200,0 L0,0 Z"
+            fill="url(#gradient-blue)"
+            opacity="0.08"
           />
           <defs>
-            <linearGradient id="gradient-green" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#6ba83d" />
-              <stop offset="50%" stopColor="#8bc34a" />
-              <stop offset="100%" stopColor="#6ba83d" />
+            <linearGradient id="gradient-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#3498db" />
+              <stop offset="100%" stopColor="#2980b9" />
             </linearGradient>
           </defs>
         </svg>
@@ -58,10 +52,10 @@ const Documents = ({ documents, onDocumentClick }: DocumentsProps) => {
 
       <motion.div
         className="documents-header"
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.6 }}
       >
         <div className="documents-badge">
           <FaShieldAlt />
@@ -69,7 +63,7 @@ const Documents = ({ documents, onDocumentClick }: DocumentsProps) => {
         </div>
         <h2 className="documents-title">Our Credentials</h2>
         <p className="documents-subtitle">
-          Verified and trusted. Issued certificates and registrations establishing our business authenticity.
+          Verified and trusted certificates establishing our business authenticity and compliance
         </p>
       </motion.div>
 
@@ -78,7 +72,7 @@ const Documents = ({ documents, onDocumentClick }: DocumentsProps) => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-80px" }}
       >
         {documents.map((doc, index) => (
           <motion.div
@@ -117,23 +111,6 @@ const Documents = ({ documents, onDocumentClick }: DocumentsProps) => {
           </motion.div>
         ))}
       </motion.div>
-
-      {/* Bottom Wave Divider */}
-      <div className="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,50 Q300,80 600,50 T1200,50 L1200,120 L0,120 Z"
-            fill="url(#gradient-green2)"
-            opacity="0.1"
-          />
-          <defs>
-            <linearGradient id="gradient-green2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#8bc34a" />
-              <stop offset="100%" stopColor="#6ba83d" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
     </section>
   )
 }
