@@ -9,12 +9,12 @@ const TrolleyAnimation = () => {
     if (!container) return
 
     const handleClick = () => {
-      const trolley = container.querySelector('.trolley') as HTMLElement
-      if (trolley) {
-        if (trolley.style.animationPlayState === 'paused') {
-          trolley.style.animationPlayState = 'running'
+      const vehicle = container.querySelector('.tractor-trolley-set') as HTMLElement
+      if (vehicle) {
+        if (vehicle.style.animationPlayState === 'paused') {
+          vehicle.style.animationPlayState = 'running'
         } else {
-          trolley.style.animationPlayState = 'paused'
+          vehicle.style.animationPlayState = 'paused'
         }
       }
     }
@@ -25,72 +25,117 @@ const TrolleyAnimation = () => {
 
   return (
     <div className="trolley-container" ref={containerRef}>
-      <div className="trolley">
-        {/* Front Wheels */}
-        <div className="wheel-set front">
-          <div className="wheel trolley-wheel">
-            <div className="wheel-rim"></div>
-            <div className="wheel-hub"></div>
-            <div className="spoke"></div>
-            <div className="spoke spoke-2"></div>
-            <div className="spoke spoke-3"></div>
-          </div>
-          <div className="wheel trolley-wheel">
-            <div className="wheel-rim"></div>
-            <div className="wheel-hub"></div>
-            <div className="spoke"></div>
-            <div className="spoke spoke-2"></div>
-            <div className="spoke spoke-3"></div>
-          </div>
-        </div>
+      <div className="tractor-trolley-set">
+        {/* TRACTOR (FRONT - PULLING) */}
+        <div className="tractor">
+          {/* Front Headlight */}
+          <div className="tractor-headlight"></div>
+          
+          {/* Tractor Body */}
+          <div className="tractor-body">
+            {/* Engine Hood */}
+            <div className="tractor-hood">
+              <div className="hood-vent"></div>
+              <div className="hood-vent"></div>
+              <div className="hood-vent"></div>
+            </div>
+            
+            {/* Cabin */}
+            <div className="tractor-cabin">
+              <div className="cabin-window"></div>
+              <div className="cabin-roof"></div>
+              <div className="cabin-door"></div>
+            </div>
 
-        {/* Trolley Body */}
-        <div className="trolley-body">
-          {/* Suspension */}
-          <div className="suspension">
-            <div className="spring"></div>
-            <div className="spring"></div>
-          </div>
-
-          {/* Cargo Box */}
-          <div className="trolley-cargo">
-            <div className="cargo-box">
-              <div className="cargo-top"></div>
-              <div className="cargo-side left"></div>
-              <div className="cargo-side right"></div>
-              <div className="cargo-front"></div>
-              <div className="cargo-detail"></div>
+            {/* Exhaust Pipe */}
+            <div className="exhaust-pipe">
+              <div className="exhaust-smoke"></div>
             </div>
           </div>
 
-          {/* Handle */}
-          <div className="handle">
-            <div className="handle-grip"></div>
+          {/* Front Wheel (Small) */}
+          <div className="tractor-wheel front-wheel">
+            <div className="wheel-rim"></div>
+            <div className="wheel-hub"></div>
+            <div className="wheel-tread"></div>
           </div>
 
-          {/* Axle */}
-          <div className="axle front-axle"></div>
-          <div className="axle rear-axle"></div>
+          {/* Rear Wheel (Large) */}
+          <div className="tractor-wheel rear-wheel">
+            <div className="wheel-rim"></div>
+            <div className="wheel-hub"></div>
+            <div className="wheel-tread"></div>
+            <div className="wheel-tread tread-2"></div>
+          </div>
         </div>
 
-        {/* Rear Wheels */}
-        <div className="wheel-set rear">
-          <div className="wheel trolley-wheel">
-            <div className="wheel-rim"></div>
-            <div className="wheel-hub"></div>
-            <div className="spoke"></div>
-            <div className="spoke spoke-2"></div>
-            <div className="spoke spoke-3"></div>
+        {/* HITCH CONNECTION (CONNECTING TRACTOR TO TROLLEY) */}
+        <div className="hitch-connection">
+          <div className="hitch-bar"></div>
+          <div className="hitch-joint"></div>
+        </div>
+
+        {/* TROLLEY (BEHIND - BEING PULLED) */}
+        <div className="trolley">
+          {/* Trolley Frame */}
+          <div className="trolley-frame">
+            {/* Cargo Box */}
+            <div className="trolley-cargo">
+              <div className="cargo-box">
+                <div className="cargo-top"></div>
+                <div className="cargo-side left"></div>
+                <div className="cargo-side right"></div>
+                <div className="cargo-front"></div>
+                <div className="cargo-detail"></div>
+                <div className="cargo-logo">WM</div>
+              </div>
+            </div>
+
+            {/* Trolley Axles */}
+            <div className="trolley-axle front-axle"></div>
+            <div className="trolley-axle rear-axle"></div>
           </div>
-          <div className="wheel trolley-wheel">
-            <div className="wheel-rim"></div>
-            <div className="wheel-hub"></div>
-            <div className="spoke"></div>
-            <div className="spoke spoke-2"></div>
-            <div className="spoke spoke-3"></div>
+
+          {/* Front Wheels */}
+          <div className="trolley-wheel-set front">
+            <div className="trolley-wheel">
+              <div className="wheel-rim"></div>
+              <div className="wheel-hub"></div>
+              <div className="spoke"></div>
+              <div className="spoke spoke-2"></div>
+              <div className="spoke spoke-3"></div>
+            </div>
+            <div className="trolley-wheel">
+              <div className="wheel-rim"></div>
+              <div className="wheel-hub"></div>
+              <div className="spoke"></div>
+              <div className="spoke spoke-2"></div>
+              <div className="spoke spoke-3"></div>
+            </div>
+          </div>
+
+          {/* Rear Wheels */}
+          <div className="trolley-wheel-set rear">
+            <div className="trolley-wheel">
+              <div className="wheel-rim"></div>
+              <div className="wheel-hub"></div>
+              <div className="spoke"></div>
+              <div className="spoke spoke-2"></div>
+              <div className="spoke spoke-3"></div>
+            </div>
+            <div className="trolley-wheel">
+              <div className="wheel-rim"></div>
+              <div className="wheel-hub"></div>
+              <div className="spoke"></div>
+              <div className="spoke spoke-2"></div>
+              <div className="spoke spoke-3"></div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Ground Line */}
+      <div className="ground-line"></div>
     </div>
   )
 }
