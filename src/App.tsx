@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, JSX } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Hero from './components/Hero'
 import Documents from './components/Documents'
@@ -16,13 +16,13 @@ export interface Document {
   path: string
 }
 
-function App() {
-  const [loading, setLoading] = useState(true)
+function App(): JSX.Element {
+  const [loading, setLoading] = useState<boolean>(true)
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(null)
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2200)
-    return () => clearTimeout(timer)
+  useEffect((): (() => void) => {
+    const timer: ReturnType<typeof setTimeout> = setTimeout((): void => setLoading(false), 2200)
+    return (): void => clearTimeout(timer)
   }, [])
 
   const documents: Document[] = [
@@ -66,13 +66,13 @@ function App() {
         >
           <ScrollProgress />
           <Hero />
-          <Documents documents={documents} onDocumentClick={setSelectedDocument} />
+          <Documents documents={documents} onDocumentClick={(doc: Document): void => setSelectedDocument(doc)} />
           <SocialMedia />
           <WhatsAppButton />
           
           <DocumentModal
             document={selectedDocument}
-            onClose={() => setSelectedDocument(null)}
+            onClose={(): void => setSelectedDocument(null)}
           />
         </motion.div>
       )}
